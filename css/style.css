@@ -1,0 +1,359 @@
+:root {
+    --neon-blue: #00f3ff;
+    --neon-purple: #bc13fe;
+    --dark-space: #0a0a12;
+    --crt-bg: rgba(20, 20, 30, 0.85);
+}
+
+body {
+    background-color: var(--dark-space);
+    color: var(--neon-blue);
+    font-family: 'Courier New', Courier, monospace;
+}
+
+/* Header alinhado */
+.main-header {
+    background-color: var(--dark-space);
+    border-bottom: 2px solid var(--neon-purple);
+    padding: 10px 0;
+}
+
+.logo-nexus {
+    color: var(--neon-blue) !important;
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+/* Menu horizontal */
+.navbar-nav {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.nav-link {
+    color: var(--neon-blue) !important;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    padding: 0.5rem 1rem !important;
+    transition: 0.3s;
+}
+
+.nav-link:hover {
+    color: var(--neon-purple) !important;
+    text-shadow: 0 0 8px var(--neon-purple);
+}
+
+/* Estrutura do Layout */
+.navbar .container-fluid {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#menuNexus {
+    display: flex;
+    justify-content: center;
+    flex-grow: 1;
+}
+
+/* Ajustes da barra de pesquisa */
+.border-neon {
+    border: 1px solid var(--neon-blue) !important;
+    color: white;
+}
+
+input::placeholder {
+    color: #555 !important;
+}
+
+/* Hero container */
+.hero-container {
+    position: relative;
+    padding: 150px 0;
+    overflow: hidden;
+    min-height: 400px;
+}
+
+/* Slideshow Parallax */
+.slideshow-parallax {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    /* Ciclo total de 24s (4 imagens * 6s) */
+    animation: fade-slideshow 24s infinite;
+}
+
+/* Definição das imagens */
+.slide-1 { background-image: url('https://i.pinimg.com/originals/99/65/bd/9965bd3f3b97d9d0b3284f05ae8129cb.gif'); }
+.slide-2 { background-image: url('https://i.pinimg.com/originals/95/ef/b8/95efb8425d270933e5e890b33ab5ef70.gif'); animation-delay: 6s; }
+.slide-3 { background-image: url('https://i.pinimg.com/originals/0e/5e/a1/0e5ea139aabe489782c05f335f723af3.gif'); animation-delay: 12s; }
+.slide-4 { background-image: url('https://i.pinimg.com/originals/a5/d1/ba/a5d1bacab3be54f05d293a701451a1e8.gif'); animation-delay: 18s; }
+
+/* Animação ajustada para 4 imagens */
+@keyframes fade-slideshow {
+    0% { opacity: 0; }
+    5% { opacity: 1; }      /* A imagem aparece rapidamente */
+    25% { opacity: 1; }     /* Fica visível por um tempo */
+    30% { opacity: 0; }     /* Desaparece antes da próxima entrar */
+    100% { opacity: 0; }
+}
+
+/* Painel de Vidro */
+.hero-overlay {
+    position: relative;
+    z-index: 1;
+    background: var(--crt-bg);
+    border: 1px solid var(--neon-blue);
+    padding: 40px;
+    border-radius: 15px;
+    backdrop-filter: blur(5px);
+}
+
+/* Animações Título/Subtítulo */
+@keyframes neon-flicker {
+    0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% { opacity: 1; text-shadow: 0 0 5px var(--neon-blue), 0 0 10px var(--neon-blue); }
+    20%, 24%, 55% { opacity: 0.8; text-shadow: none; }
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+}
+
+.hero-overlay h1 { animation: neon-flicker 3s infinite alternate; }
+.hero-overlay span { animation: float 4s ease-in-out infinite; display: inline-block; }
+
+/* Divisor Neon Estilizado */
+.section-divider {
+    border-bottom: 3px solid var(--neon-purple); /* Cor roxa neon */
+    width: 80%; /* Tamanho da linha */
+    margin: 40px auto; /* Centraliza a linha */
+    box-shadow: 0 0 10px var(--neon-purple); /* Brilho neon */
+}
+
+/* Remove o fundo cinza da seção */
+.news-section {
+    background-color: var(--dark-space) !important;
+}
+
+/* Estilo do Card (O "Painel de Controle") */
+.post-card {
+    background: rgba(10, 10, 18, 0.7); /* Transparência para o fundo escuro do site aparecer */
+    border: 1px solid var(--neon-blue);
+    border-radius: 0; /* Estilo quadrado nostálgico */
+    padding: 15px;
+    transition: 0.4s;
+    height: 100%;
+}
+
+.post-card img {
+    width: 100%;
+    height: auto;
+    border-bottom: 1px solid var(--neon-blue);
+    margin-bottom: 10px;
+}
+.post-card:hover {
+    border-color: var(--neon-purple);
+    box-shadow: 0 0 15px var(--neon-purple);
+    transform: translateY(-5px);
+}
+
+/* Ajustes de tipografia dos cards */
+.post-content h3 {
+    color: var(--neon-blue);
+    font-family: 'Courier New', monospace;
+    font-size: 1.2rem;
+}
+
+.post-content p {
+    color: #ccc;
+    font-size: 0.9rem;
+}
+
+/* Botão do Card */
+.btn-post {
+    display: inline-block;
+    border: 1px solid var(--neon-blue);
+    color: var(--neon-blue);
+    padding: 5px 15px;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-size: 0.8rem;
+}
+
+.btn-post:hover {
+    background: var(--neon-blue);
+    color: var(--dark-space);
+}
+
+main {
+    background-color: var(--dark-space);
+    min-height: 100vh;
+}
+
+/* Estilo do botão "Ver Mais" */
+.btn-neon {
+    border: 2px solid var(--neon-blue);
+    color: var(--neon-blue);
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: 0.3s;
+}
+
+.btn-neon:hover {
+    background: var(--neon-blue);
+    color: var(--dark-space);
+    box-shadow: 0 0 15px var(--neon-blue);
+}
+
+.news-section {
+    background-color: var(--dark-space) !important;
+}
+
+/* Ajuste da Paginação */
+.pagination .page-link {
+    background-color: var(--dark-space) !important;
+    border: 1px solid var(--neon-blue) !important;
+    color: var(--neon-blue) !important;
+    margin: 0 5px;
+    border-radius: 0; /* Mantém o estilo quadrado retrô */
+}
+
+.pagination .page-link:hover {
+    background-color: var(--neon-blue) !important;
+    color: var(--dark-space) !important;
+}
+
+.pagination .page-item.active .page-link {
+    background-color: var(--neon-purple) !important;
+    border-color: var(--neon-purple) !important;
+}
+
+/* Caixa de conteúdo institucional */
+.content-box {
+    background-color: var(--crt-bg); /* Fundo semi-transparente que já temos */
+    border: 1px solid var(--neon-blue);
+    padding: 40px;
+    margin-top: 20px;
+    box-shadow: 0 0 15px rgba(0, 243, 255, 0.1);
+    color: #fff; /* Garante que o texto seja sempre branco/legível */
+}
+
+.content-box h1 {
+    color: var(--neon-blue);
+    border-bottom: 2px solid var(--neon-purple);
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.post-content h3 {
+    color: var(--neon-blue);
+    font-family: 'Courier New', monospace;
+    font-size: 1.2rem;
+}
+.post-body p {
+    font-size: 1.1rem;
+    line-height: 1.8; /* Espaçamento entre linhas para facilitar a leitura */
+    color: #e0e0e0;
+}
+
+.badge {
+    text-transform: uppercase;
+    font-size: 0.7rem;
+    border-radius: 0;
+}
+
+.share-box {
+    background: rgba(0, 243, 255, 0.05); /* Fundo azul bem suave */
+}
+
+.share-btn {
+    font-size: 1.5rem;
+    margin: 0 10px;
+    color: var(--neon-blue);
+    transition: 0.3s;
+}
+
+.share-btn:hover {
+    color: var(--neon-purple);
+    transform: scale(1.2);
+    text-shadow: 0 0 10px var(--neon-purple);
+}
+
+.main-footer {
+    margin-top: 0 !important;
+}
+
+/* Garante que o main ocupe pelo menos o espaço entre o header e o footer */
+main {
+    min-height: calc(100vh - 100px); /* 100px é um valor aproximado da altura do seu header */
+    display: flex;
+    flex-direction: column;
+}
+
+/* Ajusta o hero para ser flexível */
+.hero-container {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 0; /* Ajuste o padding para controlar a altura visual */
+    min-height: 50vh; /* Garante uma altura mínima */
+}
+
+.main-footer {
+    background-color: var(--dark-space);
+    border-top: 2px solid var(--neon-purple);
+    color: var(--neon-blue);
+}
+
+/* Links do Rodapé */
+.main-footer .nav-link {
+    color: var(--neon-blue) !important;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+}
+
+.main-footer .nav-link:hover {
+    color: var(--neon-purple) !important;
+}
+
+/* Ícones Sociais */
+.social-icon {
+    color: var(--neon-blue);
+    font-size: 1.5rem;
+    margin-left: 15px;
+    transition: 0.3s;
+}
+
+.social-icon:hover {
+    color: var(--neon-purple);
+    text-shadow: 0 0 10px var(--neon-purple);
+}
+
+/* Copyright */
+.copyright {
+    font-size: 0.75rem;
+    color: var(--neon-blue);
+    letter-spacing: 1px;
+}
