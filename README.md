@@ -1,2 +1,2 @@
-# revista-nexus
-Portal de noticias modelo de estudo inacabado
+# Revista Nexus
+Modelo basico de uma revista geek
